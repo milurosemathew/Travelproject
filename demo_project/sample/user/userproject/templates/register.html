@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+       .container {
+  padding: 16px;
+
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+/* Set a style for the submit/register button */
+.submitbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  text-align:center;
+}
+
+.submitbtn:hover {
+  opacity:1;
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align:center;"> Registration Form</h1>
+    <form action="register"  method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Your Username"><br><br>
+        <input type="text" name="first_name" placeholder="Enter Your Firstname"><br><br>
+        <input type="text" name="last_name"  placeholder="Enter Your Lastname"><br><br>
+        <input type="email" name="email"  placeholder="Enter Your Email"><br><br>
+        <input type="password" name="password" placeholder="Enter Your Password"><br><br>
+        <input type="password" name="password1" placeholder="Enter Your Password Again"><br><br>
+        <div class="submitbtn">
+        <input type="submit"><br><br>
+
+    </form>
+
+    {% for msg in messages %}
+    <h2>{{msg}}</h2>
+    {% endfor %}
+</div>
+</div>
+
+</body>
+</html>
